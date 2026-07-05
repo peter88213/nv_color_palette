@@ -8,16 +8,16 @@ The [novelibre](https://github.com/peter88213/novelibre/) Python program helps a
 
 ## Requirements
 
-- [novelibre](https://github.com/peter88213/novelibre/) version 5.62+
+- [novelibre](https://github.com/peter88213/novelibre/) version $ApiVersion+
 
 ## Download and install
 
 ### Default: Executable Python zip archive
 
-Download the latest release [nv_color_palette_v0.1.0.pyz](https://github.com/peter88213/nv_color_palette/raw/main/dist/nv_color_palette_v0.1.0.pyz) (13 KB)
+Download the latest release [nv_color_palette_v$Version.pyz](https://github.com/peter88213/nv_color_palette/raw/main/dist/nv_color_palette_v$Version.pyz) ($PyzSize)
 
-- Launch *nv_color_palette_v0.1.0.pyz* by double-clicking (Windows desktop),
-- or execute `python nv_color_palette_v0.1.0.pyz` (Windows), resp. `python3 nv_color_palette_v0.1.0.pyz` (Linux) on the command line.
+- Launch *nv_color_palette_v$Version.pyz* by double-clicking (Windows desktop),
+- or execute `python nv_color_palette_v$Version.pyz` (Windows), resp. `python3 nv_color_palette_v$Version.pyz` (Linux) on the command line.
 
 > [!IMPORTANT]
 > Many web browsers recognize the download as an executable file and offer to open it immediately. 
@@ -32,9 +32,9 @@ Download the latest release [nv_color_palette_v0.1.0.pyz](https://github.com/pet
 
 ### Alternative: Zip file
 
-The package is also available in zip format: [nv_color_palette_v0.1.0.zip](https://github.com/peter88213/nv_color_palette/raw/main/dist/nv_color_palette_v0.1.0.zip) (13 KB)
+The package is also available in zip format: [nv_color_palette_v$Version.zip](https://github.com/peter88213/nv_color_palette/raw/main/dist/nv_color_palette_v$Version.zip) ($ZipSize)
 
-- Extract the *nv_color_palette_v0.1.0* folder from the downloaded zipfile "nv_color_palette_v0.1.0.zip".
+- Extract the *nv_color_palette_v$Version* folder from the downloaded zipfile "nv_color_palette_v$Version.zip".
 - Move into this new folder and launch *setup.py* by double-clicking (Windows/Linux desktop), 
 - or execute `python setup.py` (Windows), resp. `python3 setup.py` (Linux) on the command line.
 
