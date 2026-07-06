@@ -5,8 +5,8 @@
 ## Changelog
 
 
-### Version 5.0.0
+### Version 0.2.0
 
-- Release under the GPLv3 license.
+- Replacing the colorChooser strategy, still using the tkinter color chooser.
 
 Compatibility: novelibre version 5.62 API
