@@ -12,14 +12,17 @@ import sys
 sys.path.insert(0, f'{os.getcwd()}/../../novelibre/tools')
 from package_builder import PackageBuilder
 
-VERSION = '0.1.0'
+VERSION = '0.2.0'
 
 
 class PluginBuilder(PackageBuilder):
 
     PRJ_NAME = 'nv_color_palette'
     LOCAL_LIB = 'nvcolorpalette'
-    GERMAN_TRANSLATION = False
+    GERMAN_TRANSLATION = True
+
+    def add_extras(self):
+        self.add_icons()
 
 
 def main():

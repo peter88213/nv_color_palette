@@ -6,6 +6,6 @@ nv_color_palette
 
 This page refers to the latest `nv_color_palette
 <https://github.com/peter88213/nv_color_palette/>`__ release.
-You can open it with **Help > nv_color_palette Online help**.
+You can open it with **Help > Color palette plugin Online help**.
 
 

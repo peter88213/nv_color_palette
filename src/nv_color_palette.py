@@ -19,6 +19,7 @@ import webbrowser
 
 from nvcolorpalette.nvcolorpalette_locale import _
 # this should be the first import
+from nvcolorpalette.nv_color_chooser import NvColorChooser
 from nvlib.controller.plugin.plugin_base import PluginBase
 
 
@@ -42,15 +43,19 @@ class Plugin(PluginBase):
         Extends the superclass method.
         """
         super().install(model, view, controller)
+        self._icon = self._get_icon('colors.png')
 
         #--- Configure the main menu.
 
         # Add an entry to the Help menu.
-        label = _('nv_color_palette Online help')
+        label = _('Color palette plugin Online help')
         self._ui.helpMenu.add_command(
             label=label,
+            image=self._icon,
+            compound='left',
             command=self.open_help,
         )
+        self._ui.colorChooser = NvColorChooser()
 
     def open_help(self):
         webbrowser.open(self.HELP_URL)
