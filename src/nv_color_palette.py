@@ -55,7 +55,7 @@ class Plugin(PluginBase):
             compound='left',
             command=self.open_help,
         )
-        self._ui.colorChooser = NvColorChooser()
+        self._ui.colorChooser = NvColorChooser(self._ui)
 
     def open_help(self):
         webbrowser.open(self.HELP_URL)

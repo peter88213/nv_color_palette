@@ -4,18 +4,16 @@ Copyright (c) Peter Triesberger
 For further information see https://github.com/peter88213/nv_color_palette
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
-
-from tkinter import colorchooser
+from nvcolorpalette.palette_view import PaletteView
 
 
 class NvColorChooser:
 
-    def choose_color(self, title='', initialcolor=None):
-        color = colorchooser.askcolor(
-            title=title,
-            color=initialcolor,
-        )
-        if color is None:
-            return None
+    def __init__(self, ui):
+        self._ui = ui
 
-        return color[1]
+    def choose_color(self, title='', initialcolor=None):
+        palette = PaletteView(self, self._ui)
+        palette.wait_window(palette)
+
+        return self.color
