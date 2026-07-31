@@ -33,7 +33,7 @@ class Plugin(PluginBase):
     HELP_URL = 'https://github.com/peter88213/nv_color_palette/tree/main/docs/nv_color_palette'
 
     def install(self, model, view, controller):
-        """Install the plugin.
+        """Install the plugin at runtime.
         
         Positional arguments:
             model -- reference to the novelibre main model instance.
