@@ -15,8 +15,6 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 """
-import webbrowser
-
 from nvcolorpalette.nvcolorpalette_locale import _
 # this should be the first import
 from nvcolorpalette.nv_color_chooser import NvColorChooser
@@ -26,7 +24,7 @@ from nvlib.controller.plugin.plugin_base import PluginBase
 class Plugin(PluginBase):
     """A color palette dialog plugin class."""
     VERSION = '@release'
-    API_VERSION = '5.62'
+    API_VERSION = '5.63'
     DESCRIPTION = 'Color palette dialog'
     URL = 'https://github.com/peter88213/nv_color_palette'
 
@@ -43,7 +41,7 @@ class Plugin(PluginBase):
         super().install(model, view, controller)
         self._icon = self._get_icon('colors.png')
 
-        #--- Configure the main menu.
+        #--- Configure the user interface.
 
         def open_help():
             self._ctrl.helpService.open_help_page(
