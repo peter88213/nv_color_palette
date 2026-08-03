@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.2.0\n"
-"POT-Creation-Date: 2026-07-06 16:45:33\n"
+"POT-Creation-Date: 2026-08-03 13:05:38\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
@@ -14,5 +14,8 @@ msgstr ""
 "Generated-By: novelibre pgettext.py 1.0\n"
 
 
-msgid "Color palette plugin Online help"
+msgid "Color palette plugin help"
+msgstr ""
+
+msgid "help"
 msgstr ""

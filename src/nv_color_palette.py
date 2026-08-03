@@ -30,8 +30,6 @@ class Plugin(PluginBase):
     DESCRIPTION = 'Color palette dialog'
     URL = 'https://github.com/peter88213/nv_color_palette'
 
-    HELP_URL = 'https://github.com/peter88213/nv_color_palette/tree/main/docs/nv_color_palette'
-
     def install(self, model, view, controller):
         """Install the plugin at runtime.
         
@@ -47,16 +45,19 @@ class Plugin(PluginBase):
 
         #--- Configure the main menu.
 
+        def open_help():
+            self._ctrl.helpService.open_help_page(
+                _('help'),
+                site='https://peter88213.github.io/nv_color_palette'
+            )
+
         # Add an entry to the Help menu.
-        label = _('Color palette plugin Online help')
+        label = _('Color palette plugin help')
         self._ui.helpMenu.add_command(
             label=label,
             image=self._icon,
             compound='left',
-            command=self.open_help,
+            command=open_help,
         )
         self._ui.colorChooser = NvColorChooser(self._ui)
-
-    def open_help(self):
-        webbrowser.open(self.HELP_URL)
 
