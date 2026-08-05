@@ -28,7 +28,7 @@ class Plugin(PluginBase):
     DESCRIPTION = 'Color palette dialog'
     URL = 'https://github.com/peter88213/nv_color_palette'
     HELP_SITE = 'https://peter88213.github.io/nv_color_palette'
-    HELP_PAGE = _('help'),
+    HELP_PAGE = _('help')
 
     def install(self, model, view, controller):
         """Install the plugin at runtime.
