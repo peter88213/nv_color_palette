@@ -16,8 +16,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 """
 from nvcolorpalette.nvcolorpalette_locale import _
-# this should be the first import
 from nvcolorpalette.nv_color_chooser import NvColorChooser
+from nvcolorpalette.nvcolorpalette_globals import HELP_PAGE
+from nvcolorpalette.nvcolorpalette_globals import HELP_SITE
 from nvlib.controller.plugin.plugin_base import PluginBase
 
 
@@ -27,8 +28,8 @@ class Plugin(PluginBase):
     API_VERSION = '5.63'
     DESCRIPTION = 'Color palette dialog'
     URL = 'https://github.com/peter88213/nv_color_palette'
-    HELP_SITE = 'https://peter88213.github.io/nv_color_palette'
-    HELP_PAGE = _('help')
+    HELP_SITE = HELP_SITE
+    HELP_PAGE = HELP_PAGE
 
     def install(self, model, view, controller):
         """Install the plugin at runtime.
@@ -49,5 +50,5 @@ class Plugin(PluginBase):
 
         #--- Replace the color chooser strategy class.
 
-        self._ui.colorChooser = NvColorChooser(self._ui)
+        self._ui.colorChooser = NvColorChooser(self._ui, self._ctrl)
 

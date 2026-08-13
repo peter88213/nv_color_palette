@@ -9,11 +9,13 @@ from nvcolorpalette.palette_view import PaletteView
 
 class NvColorChooser:
 
-    def __init__(self, ui):
+    def __init__(self, ui, controller):
         self._ui = ui
+        self._ctrl = controller
+        self.color = None
 
     def choose_color(self, title='', initialcolor=None):
-        palette = PaletteView(self, self._ui)
+        palette = PaletteView(self, self._ui, self._ctrl, title, initialcolor)
         palette.wait_window(palette)
 
         return self.color

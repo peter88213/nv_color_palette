@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.2.0\n"
+"Project-Id-Version: 0.3.0\n"
 "POT-Creation-Date: 2026-07-06 16:24:36\n"
-"PO-Revision-Date: 2026-08-03 13:05:38\n"
+"PO-Revision-Date: 2026-08-13 16:09:44\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -14,8 +14,44 @@ msgstr ""
 "Generated-By: novelibre pgettext.py 1.0\n"
 
 
+msgid "Cancel"
+msgstr "Abbrechen"
+
 msgid "Color palette plugin help"
 msgstr "Farbpaletten-Plugin Hilfe"
+
+msgid "Ctrl"
+msgstr "Strg"
+
+msgid "Del"
+msgstr "Entf"
+
+msgid "Down"
+msgstr "Ab"
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "Inverted display"
+msgstr "Invertierte Darstellung"
+
+msgid "Left"
+msgstr "Links"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Regulas display"
+msgstr "Normale Darstellung"
+
+msgid "Right"
+msgstr "Rechts"
+
+msgid "Shift"
+msgstr "Umschalt"
+
+msgid "Up"
+msgstr "Auf"
 
 msgid "help"
 msgstr "help_de"
