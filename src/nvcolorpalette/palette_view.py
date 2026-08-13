@@ -6,7 +6,8 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 from tkinter import ttk
 
-from nvcolorpalette.nvcolorpalette_globals import HELP_PAGE, COLORS
+from nvcolorpalette.nvcolorpalette_globals import COLORS
+from nvcolorpalette.nvcolorpalette_globals import HELP_PAGE
 from nvcolorpalette.nvcolorpalette_globals import HELP_SITE
 from nvcolorpalette.nvcolorpalette_locale import _
 from nvlib.gui.platform.platform_settings import KEYS
