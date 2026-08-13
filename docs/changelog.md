@@ -9,6 +9,7 @@
 
 - Changed color button relief.
 - Fixed preview label text.
+- Changed color palette.
 
 API: 5.63
 Based on novelibre 5.63.3
