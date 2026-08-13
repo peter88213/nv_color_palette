@@ -5,6 +5,15 @@
 ## Changelog
 
 
+### Version 0.3.2
+
+- Changed color button relief.
+- Fixed preview label text.
+
+API: 5.63
+Based on novelibre 5.63.3
+
+
 ### Version 0.3.1
 
 - Fixed help URL.

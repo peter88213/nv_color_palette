@@ -6,7 +6,7 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 from tkinter import ttk
 
-from nvcolorpalette.nvcolorpalette_globals import HELP_PAGE
+from nvcolorpalette.nvcolorpalette_globals import HELP_PAGE, COLORS
 from nvcolorpalette.nvcolorpalette_globals import HELP_SITE
 from nvcolorpalette.nvcolorpalette_locale import _
 from nvlib.gui.platform.platform_settings import KEYS
@@ -16,6 +16,9 @@ import tkinter as tk
 
 
 class PaletteView(ModalDialog):
+
+    COLORS_PER_ROW = 8
+    COLOR_FIELD_WIDTH = 5
 
     def __init__(self, chooser, ui, controller, title, initialcolor, **kw):
 
@@ -38,9 +41,9 @@ class PaletteView(ModalDialog):
 
         def set_current_color(color):
             self._color = color
-            self._currentColorBg['bg'] = color
-            self._currentColorBg['fg'] = contrast_color(color)
-            self._currentColorFg['fg'] = color
+            self._currentColorInv['bg'] = color
+            self._currentColorInv['fg'] = contrast_color(color)
+            self._currentColor['fg'] = color
 
         super().__init__(ui, **kw)
         self._ctrl = controller
@@ -65,21 +68,21 @@ class PaletteView(ModalDialog):
         self._preview = ttk.Frame(self)
         self._preview.pack(fill='both', expand=False)
 
-        self._currentColorBg = tk.Label(
+        self._currentColorInv = tk.Label(
             self._preview,
             text=_('Inverted display'),
             fg=contrast_color(initialcolor),
             bg=initialcolor,
         )
-        self._currentColorBg.pack(side='right', fill='x', expand=True)
+        self._currentColorInv.pack(side='right', fill='x', expand=True)
 
-        self._currentColorFg = tk.Label(
+        self._currentColor = tk.Label(
             self._preview,
-            text=_('Regulas display'),
+            text=_('Regular display'),
             fg=initialcolor,
             bg=prefs['color_text_bg'],
         )
-        self._currentColorFg.pack(side='left', fill='x', expand=True)
+        self._currentColor.pack(side='left', fill='x', expand=True)
 
         ttk.Separator(
             self,
@@ -115,61 +118,17 @@ class PaletteView(ModalDialog):
         self.bind(KEYS.OPEN_HELP[0], open_help_page)
 
         #--- Draw the color palette.
-        COLORS_PER_ROW = 10
-        COLOR_FIELD_WIDTH = 5
-        colors = [
-          "#004586",
-          "#ff420e",
-          "#ffd320",
-          "#579d1c",
-          "#7e0021",
-          "#83caff",
-          "#314004",
-          "#aecf00",
-          "#4b1f6f",
-          "#ff950e",
-          "#c5000b",
-          "#0084d1",
-          "#106802",
-          "#18a303",
-          "#43c330",
-          "#92e285",
-          "#ccf4c6",
-          "#2cee0e",
-          "#023f62",
-          "#0369a3",
-          "#1c99e0",
-          "#63bbee",
-          "#aadcf7",
-          "#00a0fc",
-          "#622502",
-          "#a33e03",
-          "#d36118",
-          "#f09e6f",
-          "#f9cfb5",
-          "#fc5c00",
-          "#530260",
-          "#8e03a3",
-          "#c254d2",
-          "#dc85e9",
-          "#f2cbf8",
-          "#e327ff",
-          "#876900",
-          "#c99c00",
-          "#e9b913",
-          "#f5cd53",
-          "#fde9a9",
-          "#ffd74c",
-        ]
-        for i, color in enumerate(colors):
+        for i, color in enumerate(COLORS):
             tk.Button(
                 self._paletteArea,
+                relief='flat',
+                overrelief='raised',
                 bg=color,
-                width=COLOR_FIELD_WIDTH,
+                width=self.COLOR_FIELD_WIDTH,
                 command=lambda c=color: set_current_color(c),
             ).grid(
-                row=i // COLORS_PER_ROW,
-                column=i % COLORS_PER_ROW,
+                row=i // self.COLORS_PER_ROW,
+                column=i % self.COLORS_PER_ROW,
                 padx=5,
                 pady=5,
             )
