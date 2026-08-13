@@ -5,6 +5,14 @@
 ## Changelog
 
 
+### Version 0.3.1
+
+- Fixed help URL.
+
+API: 5.63
+Based on novelibre 5.63.3
+
+
 ### Version 0.3.0
 
 - Working with a fixed palette.
