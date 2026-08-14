@@ -111,7 +111,7 @@ class PaletteView(ModalDialog):
         # "Ok" button.
         ttk.Button(
             self._footer,
-            text=_('Ok'),
+            text=_('Apply'),
             command=return_color,
         ).pack(padx=5, pady=5, side='right')
 

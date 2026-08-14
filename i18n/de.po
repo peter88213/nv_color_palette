@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.3.2\n"
+"Project-Id-Version: 0.3.3\n"
 "POT-Creation-Date: 2026-07-06 16:24:36\n"
-"PO-Revision-Date: 2026-08-13 17:07:43\n"
+"PO-Revision-Date: 2026-08-14 13:36:26\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -13,6 +13,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: novelibre pgettext.py 1.0\n"
 
+
+msgid "Apply"
+msgstr "Anwenden"
 
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -37,9 +40,6 @@ msgstr "Invertierte Darstellung"
 
 msgid "Left"
 msgstr "Links"
-
-msgid "Ok"
-msgstr "Ok"
 
 msgid "Regular display"
 msgstr "Normale Darstellung"
