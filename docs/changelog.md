@@ -5,6 +5,14 @@
 ## Changelog
 
 
+### Version 0.3.3
+
+- Changed button label.
+
+API: 5.63
+Based on novelibre 5.64.0
+
+
 ### Version 0.3.2
 
 - Changed color button relief.
