@@ -42,9 +42,9 @@ class PaletteView(ModalDialog):
 
         def set_current_color(color):
             self._color = color
-            self._currentColorInv['bg'] = color
-            self._currentColorInv['fg'] = contrast_color(color)
-            self._currentColor['fg'] = color
+            currentColorPreviewInv['bg'] = color
+            currentColorPreviewInv['fg'] = contrast_color(color)
+            currentColorPreview['fg'] = color
 
         super().__init__(ui, **kw)
         self._ctrl = controller
@@ -57,8 +57,8 @@ class PaletteView(ModalDialog):
         prefs = self._ctrl.get_preferences()
         initialcolor = initialcolor or prefs['color_text_fg']
 
-        self._paletteArea = ttk.Frame(self)
-        self._paletteArea.pack(fill='both', expand=True)
+        paletteArea = ttk.Frame(self)
+        paletteArea.pack(fill='both', expand=True)
 
         ttk.Separator(
             self,
@@ -66,51 +66,50 @@ class PaletteView(ModalDialog):
         ).pack(fill='x')
 
         #--- Current color selection preview.
-        self._preview = ttk.Frame(self)
-        self._preview.pack(fill='both', expand=False)
+        previewWindow = ttk.Frame(self)
+        previewWindow.pack(fill='both', expand=False)
 
-        self._currentColorInv = tk.Label(
-            self._preview,
+        currentColorPreviewInv = tk.Label(
+            previewWindow,
             text=_('Inverted display'),
             fg=contrast_color(initialcolor),
             bg=initialcolor,
         )
-        self._currentColorInv.pack(side='right', fill='x', expand=True)
+        currentColorPreviewInv.pack(side='right', fill='x', expand=True)
 
-        self._currentColor = tk.Label(
-            self._preview,
+        currentColorPreview = tk.Label(
+            previewWindow,
             text=_('Regular display'),
             fg=initialcolor,
             bg=prefs['color_text_bg'],
         )
-        self._currentColor.pack(side='left', fill='x', expand=True)
+        currentColorPreview.pack(side='left', fill='x', expand=True)
 
+        #--- Footer bar with buttons.
         ttk.Separator(
             self,
             orient='horizontal',
         ).pack(fill='x')
-
-        #--- Footer bar with buttons.
-        self._footer = ttk.Frame(self)
-        self._footer.pack(fill='both', expand=False)
+        footer = tk.Frame(self)
+        footer.pack(fill='both', expand=False)
 
         # "Cancel" button.
         ttk.Button(
-            self._footer,
+            footer,
             text=_('Cancel'),
             command=cancel,
         ).pack(padx=5, pady=5, side='right')
 
         # "Help" button.
         ttk.Button(
-            self._footer,
+            footer,
             text=_('Help'),
             command=open_help_page,
         ).pack(padx=5, pady=5, side='right')
 
-        # "Ok" button.
+        # "Apply" button.
         ttk.Button(
-            self._footer,
+            footer,
             text=_('Apply'),
             command=return_color,
         ).pack(padx=5, pady=5, side='right')
@@ -121,7 +120,7 @@ class PaletteView(ModalDialog):
         #--- Draw the color palette.
         for i, color in enumerate(COLORS):
             tk.Button(
-                self._paletteArea,
+                paletteArea,
                 relief='flat',
                 overrelief='raised',
                 bg=color,
