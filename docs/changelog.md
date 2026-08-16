@@ -5,13 +5,14 @@
 ## Changelog
 
 
-### Version 0.4.1
+### Version 0.4.2
 
 - Added a hex color entry.
 - Added a *Color chooser* button.
+- Ensuring safe operation under Linux.
 
 API: 5.63
-Based on novelibre 5.64.6
+Based on novelibre 5.64.7
 
 
 ### Version 0.3.3

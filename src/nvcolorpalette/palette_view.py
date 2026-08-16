@@ -48,6 +48,11 @@ class PaletteView(ModalDialog):
             else:
                 self._colorVar.set(self._color)
 
+        def on_quit(event=None):
+            for child in self.winfo_children():
+                child.destroy()
+            self.destroy()
+
         def open_help_page(event=None):
             self._ctrl.open_help(
                 page=HELP_PAGE,
@@ -68,6 +73,7 @@ class PaletteView(ModalDialog):
         super().__init__(ui, **kw)
         self._ctrl = controller
         self.title(title)
+        self.protocol("WM_DELETE_WINDOW", on_quit)
 
         self._chooser = chooser
         self._chooser.color = None
