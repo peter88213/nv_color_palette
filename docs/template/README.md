@@ -17,7 +17,7 @@ The [novelibre](https://github.com/peter88213/novelibre/) Python program helps a
 - [novelibre](https://github.com/peter88213/novelibre/) version $ApiVersion+
 
 > [!IMPORTANT]
-> This is an Aplha release. The plugin is currently under development. Errors can occur. 
+> This is an Alpha release. The plugin is currently under development. Errors might occur. 
 
 ## Download and install
 
