@@ -29,14 +29,13 @@ class PaletteView(ModalDialog):
             self.destroy()
 
         def choose_color():
-            self.wm_attributes('-topmost', False)
             color = colorchooser.askcolor(
+                parent=self,
                 title=title,
                 color=self._color,
             )[1]
             if color is not None:
                 set_current_color(color)
-            self.wm_attributes('-topmost', True)
 
         def contrast_color(c):
             contrastCol = '#ffffff' if HexColor.is_dark(c) else '#000000'
