@@ -14,6 +14,8 @@ from nvlib.gui.platform.platform_settings import KEYS
 from nvlib.gui.widgets.modal_dialog import ModalDialog
 from nvlib.model.hex_color import HexColor
 import tkinter as tk
+from nvlib.gui.widgets.my_string_var import MyStringVar
+from tkinter import colorchooser
 
 
 class PaletteView(ModalDialog):
@@ -26,9 +28,26 @@ class PaletteView(ModalDialog):
         def cancel():
             self.destroy()
 
+        def choose_color():
+            self.wm_attributes('-topmost', False)
+            color = colorchooser.askcolor(
+                title=title,
+                color=self._color,
+            )[1]
+            if color is not None:
+                set_current_color(color)
+            self.wm_attributes('-topmost', True)
+
         def contrast_color(c):
             contrastCol = '#ffffff' if HexColor.is_dark(c) else '#000000'
             return contrastCol
+
+        def get_color_entry(event=None):
+            color = self._colorVar.get()
+            if HexColor.is_hex_color(color):
+                set_current_color(color)
+            else:
+                self._colorVar.set(self._color)
 
         def open_help_page(event=None):
             self._ctrl.open_help(
@@ -45,6 +64,7 @@ class PaletteView(ModalDialog):
             currentColorPreviewInv['bg'] = color
             currentColorPreviewInv['fg'] = contrast_color(color)
             currentColorPreview['fg'] = color
+            self._colorVar.set(self._color)
 
         super().__init__(ui, **kw)
         self._ctrl = controller
@@ -52,7 +72,7 @@ class PaletteView(ModalDialog):
 
         self._chooser = chooser
         self._chooser.color = None
-        self._color = None
+        self._color = initialcolor
 
         prefs = self._ctrl.get_preferences()
         initialcolor = initialcolor or prefs['color_text_fg']
@@ -84,6 +104,32 @@ class PaletteView(ModalDialog):
             bg=prefs['color_text_bg'],
         )
         currentColorPreview.pack(side='left', fill='x', expand=True)
+
+        #--- User-defined color setting.
+        colorEntryWindow = ttk.Frame(self)
+        colorEntryWindow.pack(fill='both', expand=True)
+
+        # Hex color entry
+        self._colorVar = MyStringVar(value=initialcolor)
+        colorEntry = ttk.Entry(
+            colorEntryWindow,
+            textvariable=self._colorVar,
+        )
+        colorEntry.bind('<Return>', get_color_entry)
+        colorEntry.pack(padx=5, pady=5, side='left')
+
+        # System color chooser.
+        ttk.Button(
+            colorEntryWindow,
+            text=_('Color chooser'),
+            command=choose_color,
+        ).pack(
+            padx=5,
+            pady=5,
+            side='right',
+            fill='x',
+            expand=True,
+        )
 
         #--- Footer bar with buttons.
         ttk.Separator(

@@ -5,6 +5,15 @@
 ## Changelog
 
 
+### Version 0.4.0
+
+- Added a hex color entry.
+- Added a *Color chooser* button.
+
+API: 5.63
+Based on novelibre 5.64.6
+
+
 ### Version 0.3.3
 
 - Changed button label.
