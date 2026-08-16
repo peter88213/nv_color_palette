@@ -5,7 +5,7 @@
 ## Changelog
 
 
-### Version 0.4.2
+### Version 0.4.3
 
 - Added a hex color entry.
 - Added a *Color chooser* button.

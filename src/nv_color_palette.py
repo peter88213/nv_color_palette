@@ -52,3 +52,5 @@ class Plugin(PluginBase):
 
         self._ui.colorChooser = NvColorChooser(self._ui, self._ctrl)
 
+    def on_quit(self):
+        self._ui.colorChooser.on_quit()

@@ -29,11 +29,13 @@ class PaletteView(ModalDialog):
             self.destroy()
 
         def choose_color():
+            self._system_chooser_is_active = True
             color = colorchooser.askcolor(
                 parent=self,
                 title=title,
                 color=self._color,
             )[1]
+            self._system_chooser_is_active = False
             if color is not None:
                 set_current_color(color)
 
@@ -49,8 +51,9 @@ class PaletteView(ModalDialog):
                 self._colorVar.set(self._color)
 
         def on_quit(event=None):
-            for child in self.winfo_children():
-                child.destroy()
+            if self._system_chooser_is_active:
+                return 'break'
+
             self.destroy()
 
         def open_help_page(event=None):
@@ -74,6 +77,8 @@ class PaletteView(ModalDialog):
         self._ctrl = controller
         self.title(title)
         self.protocol("WM_DELETE_WINDOW", on_quit)
+        self._system_chooser_is_active = False
+        # semaphore (necessary for Linux)
 
         self._chooser = chooser
         self._chooser.color = None
