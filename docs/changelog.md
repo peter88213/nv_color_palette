@@ -4,6 +4,13 @@
 
 ## Changelog
 
+### Version 0.5.0
+
+- Providing a choice of predefined palettes.
+
+API: 5.63
+Based on novelibre 5.64.7
+
 
 ### Version 0.4.3
 

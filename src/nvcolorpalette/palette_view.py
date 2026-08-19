@@ -20,13 +20,24 @@ from tkinter import colorchooser
 
 class PaletteView(ModalDialog):
 
-    COLORS_PER_ROW = 8
-    COLOR_FIELD_WIDTH = 5
+    COLORS_PER_ROW = 12
+    COLOR_FIELD_WIDTH = 2
 
     def __init__(self, chooser, ui, controller, title, initialcolor, **kw):
 
         def cancel():
             self.destroy()
+
+        def change_palette(event=None):
+            chooser.paletteIndex = palettes.index(
+                self._predefinedPaletteVar.get()
+            )
+            self._draw_color_palette(
+                self._paletteArea,
+                PALETTES[
+                    palettes[chooser.paletteIndex]
+                ]
+            )
 
         def choose_color():
             self._system_chooser_is_active = True
@@ -37,16 +48,12 @@ class PaletteView(ModalDialog):
             )[1]
             self._system_chooser_is_active = False
             if color is not None:
-                set_current_color(color)
-
-        def contrast_color(c):
-            contrastCol = '#ffffff' if HexColor.is_dark(c) else '#000000'
-            return contrastCol
+                self._set_current_color(color)
 
         def get_color_entry(event=None):
             color = self._colorVar.get()
             if HexColor.is_hex_color(color):
-                set_current_color(color)
+                self._set_current_color(color)
             else:
                 self._colorVar.set(self._color)
 
@@ -66,13 +73,6 @@ class PaletteView(ModalDialog):
             self._chooser.color = self._color
             self.destroy()
 
-        def set_current_color(color):
-            self._color = color
-            currentColorPreviewInv['bg'] = color
-            currentColorPreviewInv['fg'] = contrast_color(color)
-            currentColorPreview['fg'] = color
-            self._colorVar.set(self._color)
-
         super().__init__(ui, **kw)
         self._ctrl = controller
         self.title(title)
@@ -83,13 +83,23 @@ class PaletteView(ModalDialog):
         self._chooser = chooser
         self._chooser.color = None
         self._color = initialcolor
-        self._palette = 'chart-palettes'
 
         prefs = self._ctrl.get_preferences()
         initialcolor = initialcolor or prefs['color_text_fg']
 
-        paletteArea = ttk.Frame(self)
-        paletteArea.pack(fill='both', expand=True)
+        #--- Predefined palette area.
+        palettes = list(PALETTES)
+        self._predefinedPaletteVar = tk.StringVar()
+        ttk.OptionMenu(
+            self,
+            self._predefinedPaletteVar,
+            palettes[chooser.paletteIndex],
+            *palettes,
+            command=change_palette,
+        ).pack(anchor='w')
+
+        self._paletteArea = ttk.Frame(self)
+        self._paletteArea.pack(fill='both', expand=True)
 
         ttk.Separator(
             self,
@@ -100,21 +110,18 @@ class PaletteView(ModalDialog):
         previewWindow = ttk.Frame(self)
         previewWindow.pack(fill='both', expand=False)
 
-        currentColorPreviewInv = tk.Label(
+        self._currentColorPreviewInv = tk.Label(
             previewWindow,
             text=_('Background'),
-            fg=contrast_color(initialcolor),
-            bg=initialcolor,
         )
-        currentColorPreviewInv.pack(side='right', fill='x', expand=True)
+        self._currentColorPreviewInv.pack(side='right', fill='x', expand=True)
 
-        currentColorPreview = tk.Label(
+        self._currentColorPreview = tk.Label(
             previewWindow,
             text=_('Foreground'),
-            fg=initialcolor,
             bg=prefs['color_text_bg'],
         )
-        currentColorPreview.pack(side='left', fill='x', expand=True)
+        self._currentColorPreview.pack(side='left', fill='x', expand=True)
 
         #--- User-defined color setting.
         colorEntryWindow = ttk.Frame(self)
@@ -128,6 +135,8 @@ class PaletteView(ModalDialog):
         )
         colorEntry.bind('<Return>', get_color_entry)
         colorEntry.pack(padx=5, pady=5, side='left')
+
+        self._set_current_color(initialcolor)
 
         # System color chooser.
         ttk.Button(
@@ -174,15 +183,28 @@ class PaletteView(ModalDialog):
         #--- Set Key bindings.
         self.bind(KEYS.OPEN_HELP[0], open_help_page)
 
-        #--- Draw the color palette.
-        for i, color in enumerate(PALETTES[self._palette]):
+        self._draw_color_palette(
+            self._paletteArea,
+            PALETTES[
+                palettes[chooser.paletteIndex]
+            ]
+        )
+
+    def _draw_color_palette(self, paletteArea, palette):
+
+        # Clear the palette area.
+        for field in paletteArea.grid_slaves():
+            field.grid_forget()
+
+        # Populate the palette area with the color fields.
+        for i, color in enumerate(palette):
             tk.Button(
                 paletteArea,
                 relief='flat',
                 overrelief='raised',
                 bg=color,
                 width=self.COLOR_FIELD_WIDTH,
-                command=lambda c=color: set_current_color(c),
+                command=lambda c=color: self._set_current_color(c),
             ).grid(
                 row=i // self.COLORS_PER_ROW,
                 column=i % self.COLORS_PER_ROW,
@@ -190,3 +212,14 @@ class PaletteView(ModalDialog):
                 pady=5,
             )
 
+    def _set_current_color(self, color):
+
+        def contrast_color(c):
+            contrastCol = '#ffffff' if HexColor.is_dark(c) else '#000000'
+            return contrastCol
+
+        self._color = color
+        self._currentColorPreviewInv['bg'] = color
+        self._currentColorPreviewInv['fg'] = contrast_color(color)
+        self._currentColorPreview['fg'] = color
+        self._colorVar.set(self._color)

@@ -14,6 +14,7 @@ class NvColorChooser:
         self._ui = ui
         self._ctrl = controller
         self.color = None
+        self.paletteIndex = 0
 
     def choose_color(self, title='', initialcolor=None):
         palette = PaletteView(self, self._ui, self._ctrl, title, initialcolor)
