@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.3\n"
-"POT-Creation-Date: 2026-08-16 12:42:02\n"
+"POT-Creation-Date: 2026-08-19 20:13:17\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
@@ -15,6 +15,9 @@ msgstr ""
 
 
 msgid "Apply"
+msgstr ""
+
+msgid "Background"
 msgstr ""
 
 msgid "Cancel"
@@ -35,16 +38,13 @@ msgstr ""
 msgid "Down"
 msgstr ""
 
+msgid "Foreground"
+msgstr ""
+
 msgid "Help"
 msgstr ""
 
-msgid "Inverted display"
-msgstr ""
-
 msgid "Left"
-msgstr ""
-
-msgid "Regular display"
 msgstr ""
 
 msgid "Right"

@@ -6,7 +6,7 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 from tkinter import ttk
 
-from nvcolorpalette.nvcolorpalette_globals import COLORS
+from nvcolorpalette.nvcolorpalette_globals import PALETTES
 from nvcolorpalette.nvcolorpalette_globals import HELP_PAGE
 from nvcolorpalette.nvcolorpalette_globals import HELP_SITE
 from nvcolorpalette.nvcolorpalette_locale import _
@@ -83,6 +83,7 @@ class PaletteView(ModalDialog):
         self._chooser = chooser
         self._chooser.color = None
         self._color = initialcolor
+        self._palette = 'chart-palettes'
 
         prefs = self._ctrl.get_preferences()
         initialcolor = initialcolor or prefs['color_text_fg']
@@ -101,7 +102,7 @@ class PaletteView(ModalDialog):
 
         currentColorPreviewInv = tk.Label(
             previewWindow,
-            text=_('Inverted display'),
+            text=_('Background'),
             fg=contrast_color(initialcolor),
             bg=initialcolor,
         )
@@ -109,7 +110,7 @@ class PaletteView(ModalDialog):
 
         currentColorPreview = tk.Label(
             previewWindow,
-            text=_('Regular display'),
+            text=_('Foreground'),
             fg=initialcolor,
             bg=prefs['color_text_bg'],
         )
@@ -174,7 +175,7 @@ class PaletteView(ModalDialog):
         self.bind(KEYS.OPEN_HELP[0], open_help_page)
 
         #--- Draw the color palette.
-        for i, color in enumerate(COLORS):
+        for i, color in enumerate(PALETTES[self._palette]):
             tk.Button(
                 paletteArea,
                 relief='flat',

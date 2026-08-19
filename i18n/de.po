@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.4.3\n"
 "POT-Creation-Date: 2026-07-06 16:24:36\n"
-"PO-Revision-Date: 2026-08-16 12:41:56\n"
+"PO-Revision-Date: 2026-08-19 20:13:17\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,9 @@ msgstr ""
 
 msgid "Apply"
 msgstr "Anwenden"
+
+msgid "Background"
+msgstr "Hintergrund"
 
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -35,17 +38,14 @@ msgstr "Entf"
 msgid "Down"
 msgstr "Ab"
 
+msgid "Foreground"
+msgstr "Vordergrund"
+
 msgid "Help"
 msgstr "Hilfe"
 
-msgid "Inverted display"
-msgstr "Invertierte Darstellung"
-
 msgid "Left"
 msgstr "Links"
-
-msgid "Regular display"
-msgstr "Normale Darstellung"
 
 msgid "Right"
 msgstr "Rechts"
