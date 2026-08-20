@@ -15,10 +15,14 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 """
+from pathlib import Path
+
 from nvcolorpalette.nvcolorpalette_locale import _
 from nvcolorpalette.nv_color_chooser import NvColorChooser
 from nvcolorpalette.nvcolorpalette_globals import HELP_PAGE
 from nvcolorpalette.nvcolorpalette_globals import HELP_SITE
+from nvcolorpalette.nvcolorpalette_globals import prefs
+from nvlib.configuration.configuration_json import ConfigurationJson
 from nvlib.controller.plugin.plugin_base import PluginBase
 
 
@@ -30,6 +34,14 @@ class Plugin(PluginBase):
     URL = 'https://github.com/peter88213/nv_color_palette'
     HELP_SITE = HELP_SITE
     HELP_PAGE = HELP_PAGE
+    INI_FILENAME = 'color_palette.json'
+    INI_FILEPATH = '.novx/config'
+
+    SETTINGS = dict(
+        palette_index=0,
+        custom_palette=[],
+    )
+    OPTIONS = {}
 
     def install(self, model, view, controller):
         """Install the plugin at runtime.
@@ -48,9 +60,30 @@ class Plugin(PluginBase):
 
         self._add_help_menu_entry(_('Color palette plugin help'))
 
+        # --- Load configuration.
+        try:
+            homeDir = str(Path.home()).replace('\\', '/')
+            configDir = f'{homeDir}/{self.INI_FILEPATH}'
+        except:
+            configDir = '.'
+        self._configuration = ConfigurationJson(
+            settings=self.SETTINGS,
+            options=self.OPTIONS,
+            filePath=f'{configDir}/{self.INI_FILENAME}',
+        )
+        self._configuration.read()
+        prefs.update(self._configuration.settings)
+        prefs.update(self._configuration.options)
+
         #--- Replace the color chooser strategy class.
 
         self._ui.colorChooser = NvColorChooser(self._ui, self._ctrl)
 
     def on_quit(self):
+        for keyword in prefs:
+            if keyword in self._configuration.options:
+                self._configuration.options[keyword] = prefs[keyword]
+            elif keyword in self._configuration.settings:
+                self._configuration.settings[keyword] = prefs[keyword]
+        self._configuration.write()
         self._ui.colorChooser.on_quit()

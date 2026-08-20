@@ -4,18 +4,19 @@ Copyright (c) Peter Triesberger
 For further information see https://github.com/peter88213/nv_color_palette
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
+from tkinter import colorchooser
 from tkinter import ttk
 
-from nvcolorpalette.nvcolorpalette_globals import PALETTES
 from nvcolorpalette.nvcolorpalette_globals import HELP_PAGE
 from nvcolorpalette.nvcolorpalette_globals import HELP_SITE
+from nvcolorpalette.nvcolorpalette_globals import PALETTES
+from nvcolorpalette.nvcolorpalette_globals import prefs
 from nvcolorpalette.nvcolorpalette_locale import _
 from nvlib.gui.platform.platform_settings import KEYS
 from nvlib.gui.widgets.modal_dialog import ModalDialog
+from nvlib.gui.widgets.my_string_var import MyStringVar
 from nvlib.model.hex_color import HexColor
 import tkinter as tk
-from nvlib.gui.widgets.my_string_var import MyStringVar
-from tkinter import colorchooser
 
 
 class PaletteView(ModalDialog):
@@ -25,17 +26,29 @@ class PaletteView(ModalDialog):
 
     def __init__(self, chooser, ui, controller, title, initialcolor, **kw):
 
+        def modify_custom_palette(event=None):
+            if self._color in prefs['custom_palette']:
+                prefs['custom_palette'].remove(self._color)
+            else:
+
+                prefs['custom_palette'].append(self._color)
+            self._draw_color_palette(
+                customPaletteArea,
+                prefs['custom_palette'],
+            )
+            self._config_modify_custom_palette_button()
+
         def cancel():
             self.destroy()
 
-        def change_palette(event=None):
-            chooser.paletteIndex = palettes.index(
+        def change_predefined_palette(event=None):
+            prefs['palette_index'] = palettes.index(
                 self._predefinedPaletteVar.get()
             )
             self._draw_color_palette(
-                self._paletteArea,
+                predefinedPaletteArea,
                 PALETTES[
-                    palettes[chooser.paletteIndex]
+                    palettes[prefs['palette_index']]
                 ]
             )
 
@@ -84,8 +97,8 @@ class PaletteView(ModalDialog):
         self._chooser.color = None
         self._color = initialcolor
 
-        prefs = self._ctrl.get_preferences()
-        initialcolor = initialcolor or prefs['color_text_fg']
+        mainPrefs = self._ctrl.get_preferences()
+        initialcolor = initialcolor or mainPrefs['color_text_fg']
 
         #--- Predefined palette area.
         palettes = list(PALETTES)
@@ -93,13 +106,38 @@ class PaletteView(ModalDialog):
         ttk.OptionMenu(
             self,
             self._predefinedPaletteVar,
-            palettes[chooser.paletteIndex],
+            palettes[int(prefs['palette_index'])],
             *palettes,
-            command=change_palette,
+            command=change_predefined_palette,
         ).pack(anchor='w')
 
-        self._paletteArea = ttk.Frame(self)
-        self._paletteArea.pack(fill='both', expand=True)
+        predefinedPaletteArea = ttk.Frame(self)
+        predefinedPaletteArea.pack(fill='both', expand=True)
+
+        ttk.Separator(
+            self,
+            orient='horizontal',
+        ).pack(fill='x')
+
+        #--- Custom palette area.
+
+        # Header.
+        customPaletteHeader = ttk.Frame(self)
+        customPaletteHeader.pack(fill='both', expand=True)
+        ttk.Label(
+            customPaletteHeader,
+            text=_('Custom palette'),
+        ).pack(side='left')
+
+        # Button to add/remove the current color.
+        self._modifyCustomPaletteButton = ttk.Button(
+            customPaletteHeader,
+            command=modify_custom_palette,
+        )
+        self._modifyCustomPaletteButton.pack(padx=5, pady=5, fill='x')
+
+        customPaletteArea = ttk.Frame(self)
+        customPaletteArea.pack(fill='both', expand=True)
 
         ttk.Separator(
             self,
@@ -119,7 +157,7 @@ class PaletteView(ModalDialog):
         self._currentColorPreview = tk.Label(
             previewWindow,
             text=_('Foreground'),
-            bg=prefs['color_text_bg'],
+            bg=mainPrefs['color_text_bg'],
         )
         self._currentColorPreview.pack(side='left', fill='x', expand=True)
 
@@ -135,8 +173,6 @@ class PaletteView(ModalDialog):
         )
         colorEntry.bind('<Return>', get_color_entry)
         colorEntry.pack(padx=5, pady=5, side='left')
-
-        self._set_current_color(initialcolor)
 
         # System color chooser.
         ttk.Button(
@@ -184,10 +220,22 @@ class PaletteView(ModalDialog):
         self.bind(KEYS.OPEN_HELP[0], open_help_page)
 
         self._draw_color_palette(
-            self._paletteArea,
+            predefinedPaletteArea,
             PALETTES[
-                palettes[chooser.paletteIndex]
+                palettes[prefs['palette_index']]
             ]
+        )
+        self._draw_color_palette(
+            customPaletteArea,
+            prefs['custom_palette'],
+        )
+        self._set_current_color(initialcolor)
+        self._config_modify_custom_palette_button()
+
+    def _config_modify_custom_palette_button(self):
+        self._modifyCustomPaletteButton['text'] = (
+            _('Remove selected color') if self._color in prefs['custom_palette']
+            else _('Add selected color')
         )
 
     def _draw_color_palette(self, paletteArea, palette):
@@ -223,3 +271,5 @@ class PaletteView(ModalDialog):
         self._currentColorPreviewInv['fg'] = contrast_color(color)
         self._currentColorPreview['fg'] = color
         self._colorVar.set(self._color)
+        self._config_modify_custom_palette_button()
+

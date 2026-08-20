@@ -7,6 +7,8 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 HELP_SITE = 'https://peter88213.github.io/nv_color_palette'
 HELP_PAGE = 'help'
 
+prefs = {}
+
 PALETTES = {
     'chart-palettes': [
         '#004586',

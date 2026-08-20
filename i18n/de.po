@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.5.0\n"
+"Project-Id-Version: 0.6.0\n"
 "POT-Creation-Date: 2026-07-06 16:24:36\n"
-"PO-Revision-Date: 2026-08-19 22:36:36\n"
+"PO-Revision-Date: 2026-08-20 13:43:40\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -13,6 +13,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: novelibre pgettext.py 1.0\n"
 
+
+msgid "Add selected color"
+msgstr "Ausgewählte Farbe hinzufügen"
 
 msgid "Apply"
 msgstr "Anwenden"
@@ -32,6 +35,9 @@ msgstr "Farbpaletten-Plugin Hilfe"
 msgid "Ctrl"
 msgstr "Strg"
 
+msgid "Custom palette"
+msgstr "Eigene Palette"
+
 msgid "Del"
 msgstr "Entf"
 
@@ -46,6 +52,9 @@ msgstr "Hilfe"
 
 msgid "Left"
 msgstr "Links"
+
+msgid "Remove selected color"
+msgstr "Ausgewählte Farbe entfernen"
 
 msgid "Right"
 msgstr "Rechts"
