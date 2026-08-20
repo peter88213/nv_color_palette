@@ -29,7 +29,7 @@ from nvlib.controller.plugin.plugin_base import PluginBase
 class Plugin(PluginBase):
     """A color palette dialog plugin class."""
     VERSION = '@release'
-    API_VERSION = '5.63'
+    API_VERSION = '5.64'
     DESCRIPTION = 'Color palette dialog'
     URL = 'https://github.com/peter88213/nv_color_palette'
     HELP_SITE = HELP_SITE

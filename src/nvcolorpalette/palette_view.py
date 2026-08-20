@@ -4,6 +4,7 @@ Copyright (c) Peter Triesberger
 For further information see https://github.com/peter88213/nv_color_palette
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
+import platform
 from tkinter import colorchooser
 from tkinter import ttk
 
@@ -91,7 +92,8 @@ class PaletteView(ModalDialog):
 
         #--- Configure the pop-up window.
         self.resizable(0, 0)
-        self.attributes('-toolwindow', True)
+        if platform.system() == 'Windows':
+            self.attributes('-toolwindow', True)
         self.title(title)
         self.protocol("WM_DELETE_WINDOW", on_quit)
 
