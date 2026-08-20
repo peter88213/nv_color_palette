@@ -112,7 +112,12 @@ class PaletteView(ModalDialog):
         ).pack(anchor='w')
 
         predefinedPaletteArea = ttk.Frame(self)
-        predefinedPaletteArea.pack(fill='both', expand=True)
+        predefinedPaletteArea.pack(
+            padx=5,
+            pady=5,
+            fill='both',
+            expand=True,
+        )
 
         ttk.Separator(
             self,
@@ -127,7 +132,11 @@ class PaletteView(ModalDialog):
         ttk.Label(
             customPaletteHeader,
             text=_('Custom palette'),
-        ).pack(padx=5, pady=5, side='left')
+        ).pack(
+            side='left',
+            padx=5,
+            pady=5,
+        )
 
         # Button to add/remove the current color.
         self._modifyCustomPaletteButton = ttk.Button(
@@ -137,29 +146,17 @@ class PaletteView(ModalDialog):
         self._modifyCustomPaletteButton.pack(padx=5, pady=5, fill='x')
 
         customPaletteArea = ttk.Frame(self)
-        customPaletteArea.pack(fill='both', expand=True)
+        customPaletteArea.pack(
+            padx=5,
+            pady=5,
+            fill='both',
+            expand=True,
+        )
 
         ttk.Separator(
             self,
             orient='horizontal',
         ).pack(fill='x')
-
-        #--- Current color selection preview.
-        previewWindow = ttk.Frame(self)
-        previewWindow.pack(fill='both', expand=False)
-
-        self._currentColorPreviewInv = tk.Label(
-            previewWindow,
-            text=_('Background'),
-        )
-        self._currentColorPreviewInv.pack(side='right', fill='x', expand=True)
-
-        self._currentColorPreview = tk.Label(
-            previewWindow,
-            text=_('Foreground'),
-            bg=mainPrefs['color_text_bg'],
-        )
-        self._currentColorPreview.pack(side='left', fill='x', expand=True)
 
         #--- User-defined color setting.
         colorEntryWindow = ttk.Frame(self)
@@ -186,6 +183,33 @@ class PaletteView(ModalDialog):
             fill='x',
             expand=True,
         )
+
+        ttk.Separator(
+            self,
+            orient='horizontal',
+        ).pack(fill='x')
+
+        #--- Current color selection preview.
+        previewWindow = ttk.Frame(self)
+        previewWindow.pack(
+            padx=5,
+            pady=5,
+            fill='both',
+            expand=False,
+        )
+
+        self._currentColorPreviewInv = tk.Label(
+            previewWindow,
+            text=_('Background'),
+        )
+        self._currentColorPreviewInv.pack(side='right', fill='x', expand=True)
+
+        self._currentColorPreview = tk.Label(
+            previewWindow,
+            text=_('Foreground'),
+            bg=mainPrefs['color_text_bg'],
+        )
+        self._currentColorPreview.pack(side='left', fill='x', expand=True)
 
         #--- Footer bar with buttons.
         ttk.Separator(
