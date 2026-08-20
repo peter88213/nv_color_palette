@@ -127,7 +127,7 @@ class PaletteView(ModalDialog):
         ttk.Label(
             customPaletteHeader,
             text=_('Custom palette'),
-        ).pack(side='left')
+        ).pack(padx=5, pady=5, side='left')
 
         # Button to add/remove the current color.
         self._modifyCustomPaletteButton = ttk.Button(
