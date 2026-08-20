@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.6.1\n"
+"Project-Id-Version: 0.7.0\n"
 "POT-Creation-Date: 2026-07-06 16:24:36\n"
-"PO-Revision-Date: 2026-08-20 15:19:51\n"
+"PO-Revision-Date: 2026-08-20 21:08:47\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -52,6 +52,9 @@ msgstr "Hilfe"
 
 msgid "Left"
 msgstr "Links"
+
+msgid "No predefined palette"
+msgstr "Keine vordefinierte Palette"
 
 msgid "Remove selected color"
 msgstr "Ausgewählte Farbe entfernen"

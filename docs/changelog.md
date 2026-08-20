@@ -4,6 +4,17 @@
 
 ## Changelog
 
+### Version 0.7.0
+
+- Made the dialog non-resizable.
+- Removed minimize/maximize buttons.
+- Added the *compatibility* palette to the choices.
+- Added *No predefined palette* to the choices. 
+
+API: 5.63
+Based on novelibre 5.64.7
+
+
 ### Version 0.6.1
 
 - Dialog layout update.

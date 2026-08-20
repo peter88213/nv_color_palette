@@ -88,8 +88,13 @@ class PaletteView(ModalDialog):
 
         super().__init__(ui, **kw)
         self._ctrl = controller
+
+        #--- Configure the pop-up window.
+        self.resizable(0, 0)
+        self.attributes('-toolwindow', True)
         self.title(title)
         self.protocol("WM_DELETE_WINDOW", on_quit)
+
         self._system_chooser_is_active = False
         # semaphore (necessary for Linux)
 
@@ -128,7 +133,10 @@ class PaletteView(ModalDialog):
 
         # Header.
         customPaletteHeader = ttk.Frame(self)
-        customPaletteHeader.pack(fill='both', expand=True)
+        customPaletteHeader.pack(
+            fill='both',
+            expand=False,
+        )
         ttk.Label(
             customPaletteHeader,
             text=_('Custom palette'),
@@ -143,8 +151,13 @@ class PaletteView(ModalDialog):
             customPaletteHeader,
             command=modify_custom_palette,
         )
-        self._modifyCustomPaletteButton.pack(padx=5, pady=5, fill='x')
-
+        self._modifyCustomPaletteButton.pack(
+            side='right',
+            padx=5,
+            pady=5,
+            fill='x',
+            expand=True,
+        )
         customPaletteArea = ttk.Frame(self)
         customPaletteArea.pack(
             padx=5,
@@ -160,7 +173,10 @@ class PaletteView(ModalDialog):
 
         #--- User-defined color setting.
         colorEntryWindow = ttk.Frame(self)
-        colorEntryWindow.pack(fill='both', expand=True)
+        colorEntryWindow.pack(
+            fill='x',
+            expand=False,
+        )
 
         # Hex color entry
         self._colorVar = MyStringVar(value=initialcolor)
@@ -169,7 +185,11 @@ class PaletteView(ModalDialog):
             textvariable=self._colorVar,
         )
         colorEntry.bind('<Return>', get_color_entry)
-        colorEntry.pack(padx=5, pady=5, side='left')
+        colorEntry.pack(
+            padx=5,
+            pady=5,
+            side='left',
+        )
 
         # System color chooser.
         ttk.Button(
@@ -217,7 +237,10 @@ class PaletteView(ModalDialog):
             orient='horizontal',
         ).pack(fill='x')
         footer = tk.Frame(self)
-        footer.pack(fill='both', expand=False)
+        footer.pack(
+            fill='both',
+            expand=False,
+        )
 
         # "Cancel" button.
         ttk.Button(
@@ -265,13 +288,15 @@ class PaletteView(ModalDialog):
     def _draw_color_palette(self, paletteArea, palette):
 
         # Clear the palette area.
-        for field in paletteArea.grid_slaves():
-            field.grid_forget()
+        for child in paletteArea.winfo_children():
+            child.destroy()
+        paletteView = ttk.Frame(paletteArea)
+        paletteView.pack(fill='both', expand=True)
 
         # Populate the palette area with the color fields.
         for i, color in enumerate(palette):
             tk.Button(
-                paletteArea,
+                paletteView,
                 relief='flat',
                 overrelief='raised',
                 bg=color,

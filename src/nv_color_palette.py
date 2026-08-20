@@ -38,7 +38,7 @@ class Plugin(PluginBase):
     INI_FILEPATH = '.novx/config'
 
     SETTINGS = dict(
-        palette_index=0,
+        palette_index=1,
         custom_palette=[],
     )
     OPTIONS = {}

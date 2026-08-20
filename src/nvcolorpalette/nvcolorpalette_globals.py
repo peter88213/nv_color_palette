@@ -4,25 +4,44 @@ Copyright (c) Peter Triesberger
 For further information see https://github.com/peter88213/nv_color_palette
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 '''
+from nvcolorpalette.nvcolorpalette_locale import _
+
 HELP_SITE = 'https://peter88213.github.io/nv_color_palette'
 HELP_PAGE = 'help'
 
 prefs = {}
 
 PALETTES = {
+    f"({_('No predefined palette')})": [],
     'chart-palettes': [
         '#004586',
-         '#ff420e',
-         '#ffd320',
-         '#579d1c',
-         '#7e0021',
-         '#83caff',
-         '#314004',
-         '#aecf00',
-         '#4b1f6f',
-         '#ff950e',
-         '#c5000b',
-         '#0084d1',
+        '#ff420e',
+        '#ffd320',
+        '#579d1c',
+        '#7e0021',
+        '#83caff',
+        '#314004',
+        '#aecf00',
+        '#4b1f6f',
+        '#ff950e',
+        '#c5000b',
+        '#0084d1',
+    ],
+    'compatibility': [
+        '#FFFF00',
+        '#00FF00',
+        '#00FFFF',
+        '#FF00FF',
+        '#0000FF',
+        '#FF0000',
+        '#000080',
+        '#008080',
+        '#008000',
+        '#800080',
+        '#800000',
+        '#808000',
+        '#808080',
+        '#C0C0C0',
     ],
     'libreoffice': [
         "#106802",
