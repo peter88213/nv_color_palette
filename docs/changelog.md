@@ -4,9 +4,10 @@
 
 ## Changelog
 
-### Version 0.7.2
+### Version 0.8.0
 
-- Refactored the code. 
+- Refactored the code.
+- Added a "quit" key binding.
 
 API: 5.64
 Based on novelibre 5.64.7

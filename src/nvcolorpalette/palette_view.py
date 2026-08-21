@@ -4,7 +4,6 @@ Copyright (c) Peter Triesberger
 For further information see https://github.com/peter88213/nv_color_palette
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
-import platform
 from tkinter import colorchooser
 from tkinter import ttk
 
@@ -13,7 +12,8 @@ from nvcolorpalette.nvcolorpalette_globals import HELP_SITE
 from nvcolorpalette.nvcolorpalette_globals import PALETTES
 from nvcolorpalette.nvcolorpalette_globals import prefs
 from nvcolorpalette.nvcolorpalette_locale import _
-from nvlib.gui.platform.platform_settings import KEYS
+from nvcolorpalette.platform.platform_settings import KEYS
+from nvcolorpalette.platform.platform_settings import PLATFORM
 from nvlib.gui.widgets.modal_dialog import ModalDialog
 from nvlib.gui.widgets.my_string_var import MyStringVar
 from nvlib.model.hex_color import HexColor
@@ -133,7 +133,7 @@ class PaletteView(ModalDialog):
 
         #--- Configure the pop-up window.
         self.resizable(0, 0)
-        if platform.system() == 'Windows':
+        if PLATFORM == 'win':
             self.attributes('-toolwindow', True)
         self.title(title)
         self.protocol("WM_DELETE_WINDOW", on_quit)
@@ -308,6 +308,7 @@ class PaletteView(ModalDialog):
 
         #--- Set key bindings.
         self.bind(KEYS.OPEN_HELP[0], open_help_page)
+        self.bind(KEYS.QUIT_PROGRAM[0], on_quit)
 
         #--- Set data.
         draw_color_palette(

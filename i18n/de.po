@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.7.2\n"
+"Project-Id-Version: 0.8.0\n"
 "POT-Creation-Date: 2026-07-06 16:24:36\n"
-"PO-Revision-Date: 2026-08-21 07:52:14\n"
+"PO-Revision-Date: 2026-08-21 08:24:56\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -38,32 +38,14 @@ msgstr "Strg"
 msgid "Custom palette"
 msgstr "Eigene Palette"
 
-msgid "Del"
-msgstr "Entf"
-
-msgid "Down"
-msgstr "Ab"
-
 msgid "Foreground"
 msgstr "Vordergrund"
 
 msgid "Help"
 msgstr "Hilfe"
 
-msgid "Left"
-msgstr "Links"
-
 msgid "No predefined palette"
 msgstr "Keine vordefinierte Palette"
 
 msgid "Remove selected color"
 msgstr "Ausgewählte Farbe entfernen"
-
-msgid "Right"
-msgstr "Rechts"
-
-msgid "Shift"
-msgstr "Umschalt"
-
-msgid "Up"
-msgstr "Auf"

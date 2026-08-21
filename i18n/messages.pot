@@ -3,8 +3,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.7.2\n"
-"POT-Creation-Date: 2026-08-21 07:52:14\n"
+"Project-Id-Version: 0.8.0\n"
+"POT-Creation-Date: 2026-08-21 08:24:56\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
@@ -38,32 +38,14 @@ msgstr ""
 msgid "Custom palette"
 msgstr ""
 
-msgid "Del"
-msgstr ""
-
-msgid "Down"
-msgstr ""
-
 msgid "Foreground"
 msgstr ""
 
 msgid "Help"
 msgstr ""
 
-msgid "Left"
-msgstr ""
-
 msgid "No predefined palette"
 msgstr ""
 
 msgid "Remove selected color"
-msgstr ""
-
-msgid "Right"
-msgstr ""
-
-msgid "Shift"
-msgstr ""
-
-msgid "Up"
 msgstr ""
