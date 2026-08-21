@@ -4,6 +4,14 @@
 
 ## Changelog
 
+### Version 0.7.2
+
+- Refactored the code. 
+
+API: 5.64
+Based on novelibre 5.64.7
+
+
 ### Version 0.7.1
 
 - Fixed a bug where a Windows-specific setting raises an exception under Linux. 
