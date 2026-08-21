@@ -13,7 +13,6 @@ from nvcolorpalette.nvcolorpalette_globals import PALETTES
 from nvcolorpalette.nvcolorpalette_globals import prefs
 from nvcolorpalette.nvcolorpalette_locale import _
 from nvcolorpalette.platform.platform_settings import KEYS
-from nvcolorpalette.platform.platform_settings import PLATFORM
 from nvlib.gui.widgets.modal_dialog import ModalDialog
 from nvlib.gui.widgets.my_string_var import MyStringVar
 from nvlib.model.hex_color import HexColor
@@ -94,7 +93,7 @@ class PaletteView(ModalDialog):
             self.destroy()
 
         def open_help_page(event=None):
-            self._ctrl.open_help(
+            controller.open_help(
                 page=HELP_PAGE,
                 site=HELP_SITE
             )
@@ -129,12 +128,7 @@ class PaletteView(ModalDialog):
             config_modify_custom_palette_button()
 
         super().__init__(ui, **kw)
-        self._ctrl = controller
 
-        #--- Configure the pop-up window.
-        self.resizable(0, 0)
-        if PLATFORM == 'win':
-            self.attributes('-toolwindow', True)
         self.title(title)
         self.protocol("WM_DELETE_WINDOW", on_quit)
 
@@ -144,7 +138,7 @@ class PaletteView(ModalDialog):
         chooser.color = None
         self._selectedColor = initialcolor
 
-        mainPrefs = self._ctrl.get_preferences()
+        mainPrefs = controller.get_preferences()
         initialcolor = initialcolor or mainPrefs['color_text_fg']
 
         #--- Predefined palette area.
