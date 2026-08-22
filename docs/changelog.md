@@ -4,6 +4,15 @@
 
 ## Changelog
 
+
+### Version 0.8.1
+
+- Using the novelibre 5.65 `ModalDialog`, which is non-resizable and flicker-free.
+
+API: 5.64
+Based on novelibre 5.65.1
+
+
 ### Version 0.8.0
 
 - Refactored the code.
