@@ -26,13 +26,26 @@ for reuse across different sessions and projects.
 You can add the selected color via clicking on the **Add selected color** button. 
 If the selected color is included in the custom palette, this button is labeled
 **Remove selected color** instead. Then cklicking on this button will remove
-the selechted color from the custom palette. 
+the selected color from the custom palette. 
 Clicking on a color field will select the color. 
 
 ## Setting user-defined colors
 
 If you need a color that is not included in any palette, you can select it
 either by specifying a hex value, or by calling up the system color chooser. 
+
+### Entering hexadecimal color values
+
+The hexadecimal value of the selected color is displayed in an entry field 
+and can be changed.  
+The color value begins with a hash symbol, followed by two hexadecimal digits 
+each for red, green, and blue.
+
+The value for red is e.g. `#ff0000`.
+
+Press the `Enter` key to finish entering your input.
+Invalid input will not be accepted.
+
 
 ## Applying the selected color
 
