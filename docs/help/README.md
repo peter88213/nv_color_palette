@@ -5,6 +5,46 @@
 # User guide
 
 This page refers to the latest [nv_color_palette](https://github.com/peter88213/nv_color_palette/) release.
-You can open it with **Help > Color palette plugin help**.
+You can open it with **Help > Color palette plugin help** 
+or `F1` when the palette dialog is active.
+
+
+## Predefined palette
+
+You can choose a predefined color palette using the dropdown list at the upper left
+of the top pane.
+The predefined palettes are derived from the color palettes that come with the
+LibreOffice distribution. 
+Clicking on a color field will select the color. 
+
+## Custom palette
+
+Below the predefined palette pane, there is the custom palette area. 
+The colors of the custom palette are stored in the plugin's configuration 
+for reuse across different sessions and projects.  
+
+You can add the selected color via clicking on the **Add selected color** button. 
+If the selected color is included in the custom palette, this button is labeled
+**Remove selected color** instead. Then cklicking on this button will remove
+the selechted color from the custom palette. 
+Clicking on a color field will select the color. 
+
+## Setting user-defined colors
+
+If you need a color that is not included in any palette, you can select it
+either by specifying a hex value, or by calling up the system color chooser. 
+
+## Applying the selected color
+
+Click on the **Apply** button. This will assign the selected color to the
+element selected in the *novelibre* project tree, and close the dialog. 
+
+## Canceling the color selection
+
+To close the dialog without applying the selected color, either
+
+- click on the **Cancel** button, or
+- close the window via the upper right button, or
+- press ``Alt``-``F4`` (Windows) or ``Ctrl``-``Q``.
 
 
