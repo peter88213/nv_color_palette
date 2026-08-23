@@ -21,13 +21,13 @@ Clicking on a color field will select the color.
 
 Below the predefined palette pane, there is the custom palette area. 
 The colors of the custom palette are stored in the plugin's configuration 
-for reuse across different sessions and projects.  
+for reuse across different sessions and projects. 
+Clicking on a color field will select the color.  
 
 You can add the selected color via clicking on the **Add selected color** button. 
 If the selected color is included in the custom palette, this button is labeled
 **Remove selected color** instead. Then cklicking on this button will remove
 the selected color from the custom palette. 
-Clicking on a color field will select the color. 
 
 ## Setting user-defined colors
 
@@ -40,8 +40,7 @@ The hexadecimal value of the selected color is displayed in an entry field
 and can be changed.  
 The color value begins with a hash symbol, followed by two hexadecimal digits 
 each for red, green, and blue.
-
-The value for red is e.g. `#ff0000`.
+For example, the value for red is `#ff0000`.
 
 Press the `Enter` key to finish entering your input.
 Invalid input will not be accepted.
