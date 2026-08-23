@@ -45,6 +45,6 @@ To close the dialog without applying the selected color, either
 
 - click on the **Cancel** button, or
 - close the window via the upper right button, or
-- press ``Alt``-``F4`` (Windows) or ``Ctrl``-``Q``.
+- press `Alt`-`F4` (Windows) or `Ctrl`-`Q`.
 
 
