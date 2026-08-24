@@ -19,6 +19,7 @@ then apply it to the element selected in the *novelibre* project tree.
 - A custom color palette for reuse between sessions and projects.
 - A hexadeximal color value entry.
 - A button to launch the system color chooser.
+- A preview to ensure readability.
 
 
 ## Requirements
