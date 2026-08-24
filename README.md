@@ -8,9 +8,18 @@
 
 The [novelibre](https://github.com/peter88213/novelibre/) Python program helps authors organize novels.  
 
-*nv_color_palette* is a plugin providing a color palette dialog. 
+*nv_color_palette* is a plugin providing a color palette dialog. First select a color, 
+then apply it to the element selected in the *novelibre* project tree. 
 
 ![Screenshot](docs/Screenshots/screen01.png)
+
+## Features
+
+- A selection of predefined color palettes derived from the LibreOffice palettes.
+- A custom color palette for reuse between sessions and projects.
+- A hexadeximal color value entry.
+- A button to launch the system color chooser.
+
 
 ## Requirements
 
