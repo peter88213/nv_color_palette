@@ -4,6 +4,13 @@
 
 ## Changelog
 
+### Version 5.0.0
+
+- Providing help pages in English and German with the *novelibre* user guide.
+
+API: 5.64
+Based on novelibre 5.66.1
+
 
 ### Version 0.8.1
 

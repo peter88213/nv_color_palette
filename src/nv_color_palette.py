@@ -20,7 +20,6 @@ from pathlib import Path
 from nvcolorpalette.nvcolorpalette_locale import _
 from nvcolorpalette.nv_color_chooser import NvColorChooser
 from nvcolorpalette.nvcolorpalette_globals import HELP_PAGE
-from nvcolorpalette.nvcolorpalette_globals import HELP_SITE
 from nvcolorpalette.nvcolorpalette_globals import prefs
 from nvlib.configuration.configuration_json import ConfigurationJson
 from nvlib.controller.plugin.plugin_base import PluginBase
@@ -32,7 +31,6 @@ class Plugin(PluginBase):
     API_VERSION = '5.64'
     DESCRIPTION = 'Color palette dialog'
     URL = 'https://github.com/peter88213/nv_color_palette'
-    HELP_SITE = HELP_SITE
     HELP_PAGE = HELP_PAGE
     INI_FILENAME = 'color_palette.json'
     INI_FILEPATH = '.novx/config'

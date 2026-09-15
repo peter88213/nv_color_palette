@@ -26,8 +26,6 @@ then apply it to the element selected in the *novelibre* project tree.
 
 - [novelibre](https://github.com/peter88213/novelibre/) version $ApiVersion+
 
-> [!IMPORTANT]
-> This is a Beta release. The plugin is currently under development. Errors might occur. 
 
 ## Download and install
 

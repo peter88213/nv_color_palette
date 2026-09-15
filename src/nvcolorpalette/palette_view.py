@@ -8,7 +8,6 @@ from tkinter import colorchooser
 from tkinter import ttk
 
 from nvcolorpalette.nvcolorpalette_globals import HELP_PAGE
-from nvcolorpalette.nvcolorpalette_globals import HELP_SITE
 from nvcolorpalette.nvcolorpalette_globals import PALETTES
 from nvcolorpalette.nvcolorpalette_globals import prefs
 from nvcolorpalette.nvcolorpalette_locale import _
@@ -95,7 +94,6 @@ class PaletteView(ModalDialog):
         def open_help_page(event=None):
             controller.open_help(
                 page=HELP_PAGE,
-                site=HELP_SITE
             )
 
         def modify_custom_palette(event=None):

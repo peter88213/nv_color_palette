@@ -6,8 +6,7 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 '''
 from nvcolorpalette.nvcolorpalette_locale import _
 
-HELP_SITE = 'https://peter88213.github.io/nv_color_palette'
-HELP_PAGE = 'help'
+HELP_PAGE = 'nv_color_palette'
 
 prefs = {}
 
