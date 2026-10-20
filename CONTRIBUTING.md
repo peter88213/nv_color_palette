@@ -69,10 +69,10 @@ See the [novelibre CONTRIBUTING page](https://github.com/peter88213/novelibre/bl
 │       ├── pgettext.py
 │       ├── translate_de.py
 │       └── translations.py
-└── nv_collection/
+└── nv_color_palette/
     ├── i18n/
     ├── src/
-	 │   └── nvcollectionlib/
+	 │   └── nvcolorpalette/
     └── tools/ 
         └── build.py
 ```
