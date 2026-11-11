@@ -4,6 +4,15 @@
 
 ## Changelog
 
+
+### Version 5.0.1
+
+- Improved the dialog display in dark mode.
+
+API: 5.64
+Based on novelibre 5.67.4
+
+
 ### Version 5.0.0
 
 - Providing help pages in English and German with the *novelibre* user guide.

@@ -1,4 +1,4 @@
-[![Download the latest release](docs/img/download-button.png)](https://github.com/peter88213/nv_color_palette/raw/main/dist/nv_color_palette_v5.0.0.pyz)
+[![Download the latest release](docs/img/download-button.png)](https://github.com/peter88213/nv_color_palette/raw/main/dist/nv_color_palette_v5.0.1.pyz)
 [![Changelog](docs/img/changelog-button.png)](docs/changelog.md)
 [![News/Feedback](docs/img/news-button.png)](https://github.com/peter88213/novelibre/discussions)
 [![Online help](docs/img/help-button.png)](https://peter88213.github.io/nvhelp-en/nv_color_palette/)
@@ -31,10 +31,10 @@ then apply it to the element selected in the *novelibre* project tree.
 
 ### Default: Executable Python zip archive
 
-Download the latest release [nv_color_palette_v5.0.0.pyz](https://github.com/peter88213/nv_color_palette/raw/main/dist/nv_color_palette_v5.0.0.pyz) (23 KB)
+Download the latest release [nv_color_palette_v5.0.1.pyz](https://github.com/peter88213/nv_color_palette/raw/main/dist/nv_color_palette_v5.0.1.pyz) (23 KB)
 
-- Launch *nv_color_palette_v5.0.0.pyz* by double-clicking (Windows desktop),
-- or execute `python nv_color_palette_v5.0.0.pyz` (Windows), resp. `python3 nv_color_palette_v5.0.0.pyz` (Linux) on the command line.
+- Launch *nv_color_palette_v5.0.1.pyz* by double-clicking (Windows desktop),
+- or execute `python nv_color_palette_v5.0.1.pyz` (Windows), resp. `python3 nv_color_palette_v5.0.1.pyz` (Linux) on the command line.
 
 > [!IMPORTANT]
 > Many web browsers recognize the download as an executable file and offer to open it immediately. 
@@ -49,9 +49,9 @@ Download the latest release [nv_color_palette_v5.0.0.pyz](https://github.com/pet
 
 ### Alternative: Zip file
 
-The package is also available in zip format: [nv_color_palette_v5.0.0.zip](https://github.com/peter88213/nv_color_palette/raw/main/dist/nv_color_palette_v5.0.0.zip) (23 KB)
+The package is also available in zip format: [nv_color_palette_v5.0.1.zip](https://github.com/peter88213/nv_color_palette/raw/main/dist/nv_color_palette_v5.0.1.zip) (23 KB)
 
-- Extract the *nv_color_palette_v5.0.0* folder from the downloaded zipfile "nv_color_palette_v5.0.0.zip".
+- Extract the *nv_color_palette_v5.0.1* folder from the downloaded zipfile "nv_color_palette_v5.0.1.zip".
 - Move into this new folder and launch *setup.py* by double-clicking (Windows/Linux desktop), 
 - or execute `python setup.py` (Windows), resp. `python3 setup.py` (Linux) on the command line.
 
