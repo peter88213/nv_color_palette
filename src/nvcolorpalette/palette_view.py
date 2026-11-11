@@ -40,7 +40,7 @@ class PaletteView(ModalDialog):
         def choose_color():
             self._system_chooser_is_active = True
             color = colorchooser.askcolor(
-                parent=self,
+                parent=mainWindow,
                 title=title,
                 color=self._selectedColor,
             )[1]
@@ -139,18 +139,20 @@ class PaletteView(ModalDialog):
         mainPrefs = controller.get_preferences()
         initialcolor = initialcolor or mainPrefs['color_text_fg']
 
+        mainWindow = ttk.Frame(self)
+        mainWindow.pack(fill='both', expand=True)
         #--- Predefined palette area.
         paletteNames = list(PALETTES)
         predefinedPaletteVar = tk.StringVar()
         ttk.OptionMenu(
-            self,
+            mainWindow,
             predefinedPaletteVar,
             paletteNames[int(prefs['palette_index'])],
             *paletteNames,
             command=change_predefined_palette,
         ).pack(anchor='w')
 
-        predefinedPaletteArea = ttk.Frame(self)
+        predefinedPaletteArea = ttk.Frame(mainWindow)
         predefinedPaletteArea.pack(
             padx=5,
             pady=5,
@@ -159,14 +161,14 @@ class PaletteView(ModalDialog):
         )
 
         ttk.Separator(
-            self,
+            mainWindow,
             orient='horizontal',
         ).pack(fill='x')
 
         #--- Custom palette area.
 
         # Header.
-        customPaletteHeader = ttk.Frame(self)
+        customPaletteHeader = ttk.Frame(mainWindow)
         customPaletteHeader.pack(
             fill='both',
             expand=False,
@@ -192,7 +194,7 @@ class PaletteView(ModalDialog):
             fill='x',
             expand=True,
         )
-        customPaletteArea = ttk.Frame(self)
+        customPaletteArea = ttk.Frame(mainWindow)
         customPaletteArea.pack(
             padx=5,
             pady=5,
@@ -201,12 +203,12 @@ class PaletteView(ModalDialog):
         )
 
         ttk.Separator(
-            self,
+            mainWindow,
             orient='horizontal',
         ).pack(fill='x')
 
         #--- User-defined color setting.
-        colorEntryWindow = ttk.Frame(self)
+        colorEntryWindow = ttk.Frame(mainWindow)
         colorEntryWindow.pack(
             fill='x',
             expand=False,
@@ -239,12 +241,12 @@ class PaletteView(ModalDialog):
         )
 
         ttk.Separator(
-            self,
+            mainWindow,
             orient='horizontal',
         ).pack(fill='x')
 
         #--- Current color selection preview.
-        previewWindow = ttk.Frame(self)
+        previewWindow = ttk.Frame(mainWindow)
         previewWindow.pack(
             padx=5,
             pady=5,
@@ -266,7 +268,7 @@ class PaletteView(ModalDialog):
         selectedColorFgPreview.pack(side='left', fill='x', expand=True)
 
         ttk.Separator(
-            self,
+            mainWindow,
             orient='horizontal',
         ).pack(fill='x')
 
